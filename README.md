@@ -293,9 +293,7 @@
       <!-- ✅ 메일로 바로 받기(참석신청/문의하기) + 복사/공유 -->
       <div class="actions">
         
-        <a class="btn pink" id="askBtn" href="#" role="button" aria-label="문의 이메일 보내기">
-          📩 문의하기
-        </a>
+      
         <button class="btn ghost" id="copyBtn" type="button">📍 주소 복사</button>
         <button class="btn ghost" id="shareBtn" type="button">📤 공유하기</button>
       </div>
@@ -325,12 +323,15 @@
       </button>
       <div class="sec-b" id="sec2" hidden>
         <div class="timeline">
-          <div class="row"><div class="time">10:00</div><div><b>체크인</b><div class="muted">안내 / 자리 정돈</div></div></div>
-          <div class="row"><div class="time">10:30</div><div><b>개회예배</b><div class="muted">말씀 · 찬양</div></div></div>
-          <div class="row"><div class="time">12:00</div><div><b>점심</b><div class="muted">교제</div></div></div>
-          <div class="row"><div class="time">13:30</div><div><b>프로그램</b><div class="muted">회복 코스 / 팀 활동</div></div></div>
-          <div class="row"><div class="time">16:30</div><div><b>나눔</b><div class="muted">소그룹</div></div></div>
-          <div class="row"><div class="time">17:30</div><div><b>기도회</b><div class="muted">결단 · 파송</div></div></div>
+          <div class="row"><div class="time">10:00-10:30</div><div><b>준비찬양</b><div class="muted">예배전 찬양</div></div></div>
+          <div class="row"><div class="time">10:30-11:00</div><div><b>개회예배</b><div class="muted">말씀 · 찬양</div></div></div>
+          <div class="row"><div class="time">11:00-11:50</div><div><b>아이스브레이킹</b><div class="muted">조별 게임</div></div></div>
+          <div class="row"><div class="time">11:50-13:20</div><div><b>점심시간</b><div class="muted">맛있는 점심😝</div></div></div>
+          <div class="row"><div class="time">13:20-14:20</div><div><b>전체특강</b><div class="muted">특강</div></div></div>
+          <div class="row"><div class="time">14:20-16:20</div><div><b>"RE커버리"</b><div class="muted">회복의 길로!</div></div></div>
+           <div class="row"><div class="time">16:20-16:50</div><div><b>"신령과진정"</b><div class="muted">예배전 찬양</div></div></div>
+                <div class="row"><div class="time">16:50-18:20</div><div><b>"성령충만기도회"</b><div class="muted">예배&기도</div></div></div>
+                 <div class="row"><div class="time">18:20</div><div><b>"사진촬영 및 귀가"</b><div class="muted">일상에서 계속되는 회복의 순간간으로</div></div></div>
         </div>
       </div>
     </div>
