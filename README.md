@@ -3,63 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#ec4899" />
   <title>일일수련회 모바일 초대장</title>
+
   <style>
     :root{
-      --bg:#0b1020;
-      --card:#111827;
-      --card2:#0f172a;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --line:rgba(255,255,255,.10);
-      --brand:#22c55e;
-      --brand2:#60a5fa;
-      --danger:#ef4444;
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 14px;
+      --bg:#2b0f1c;
+      --card:#3b1226;
+      --card2:#4a1730;
+      --text:#fff1f7;
+      --muted:#f9a8d4;
+      --line:rgba(255,255,255,.18);
+
+      --brand:#ec4899;   /* 메인 핑크 */
+      --brand2:#f472b6;  /* 서브 핑크 */
+      --danger:#fb7185;
+
+      --shadow:0 14px 40px rgba(236,72,153,.35);
+      --radius:18px;
+      --radius2:14px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(34,197,94,.25), transparent 60%),
-        radial-gradient(1200px 700px at 90% 10%, rgba(96,165,250,.20), transparent 55%),
-        linear-gradient(180deg, var(--bg), #050814 85%);
       color:var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", Arial, "Helvetica Neue", sans-serif;
       line-height:1.45;
       -webkit-font-smoothing: antialiased;
       padding: 22px 14px 80px;
+
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(236,72,153,.35), transparent 60%),
+        radial-gradient(1200px 700px at 90% 10%, rgba(244,114,182,.25), transparent 55%),
+        linear-gradient(180deg, var(--bg), #14060d 85%);
     }
+
     a{color:inherit}
     .wrap{max-width: 520px; margin:0 auto}
+
     .hero{
       position: relative;
-      background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(96,165,250,.12));
+      background: linear-gradient(135deg, rgba(236,72,153,.20), rgba(244,114,182,.12));
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 22px 18px 18px;
+      padding: 18px 18px 18px;
       box-shadow: var(--shadow);
       overflow:hidden;
     }
+
+    .poster{
+      width:100%;
+      border-radius:20px;
+      margin-bottom:16px;
+      box-shadow: 0 16px 40px rgba(236,72,153,.35);
+      background:#ffe4ea;
+      display:block;
+    }
+
     .badge{
       display:inline-flex;
       align-items:center;
       gap:8px;
       padding: 7px 11px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(17,24,39,.55);
+      border:1px solid rgba(255,255,255,.20);
+      background: rgba(59,18,38,.55);
       color: var(--muted);
       font-size: 12.5px;
     }
     .badge .dot{
       width:8px; height:8px; border-radius:50%;
       background: var(--brand);
-      box-shadow: 0 0 0 4px rgba(34,197,94,.14);
+      box-shadow: 0 0 0 4px rgba(236,72,153,.18);
     }
+
     h1{
       margin: 12px 0 8px;
       font-size: 26px;
@@ -67,49 +85,53 @@
     }
     .subtitle{
       margin:0 0 14px;
-      color: var(--muted);
+      color: rgba(255,241,247,.80);
       font-size: 14px;
     }
-    .verse{
-      margin-top: 14px;
-      padding: 14px 14px;
-      border-radius: var(--radius2);
-      background: rgba(17,24,39,.65);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .verse p{margin:0}
-    .verse .ref{margin-top:6px; color:var(--muted); font-size: 12.5px}
+
     .grid{
       margin-top: 14px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
+
     .pill{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(15,23,42,.72);
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(74,23,48,.55);
       border-radius: 14px;
       padding: 12px 12px;
-      min-height: 64px;
+      min-height: 70px;
     }
-    .pill .k{color:var(--muted); font-size: 12.5px}
-    .pill .v{margin-top:6px; font-weight:700; letter-spacing:-.01em}
+    .pill .k{color: rgba(255,241,247,.72); font-size: 12.5px}
+    .pill .v{margin-top:6px; font-weight:800; letter-spacing:-.01em}
+    .muted{color: rgba(255,241,247,.72)}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+
+    .verse{
+      margin-top: 14px;
+      padding: 14px 14px;
+      border-radius: var(--radius2);
+      background: rgba(74,23,48,.45);
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .verse p{margin:0}
+    .verse .ref{margin-top:6px; color: rgba(255,241,247,.72); font-size: 12.5px}
+
     .actions{
       margin-top: 14px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
+
     .btn{
       appearance:none;
       border:none;
       border-radius: 14px;
       padding: 12px 12px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing:-.01em;
-      color: #0b1020;
-      background: var(--brand);
-      box-shadow: 0 12px 26px rgba(34,197,94,.18);
       cursor:pointer;
       display:flex;
       justify-content:center;
@@ -118,26 +140,26 @@
       text-decoration:none;
       user-select:none;
       transition: transform .06s ease, filter .15s ease;
+      text-align:center;
     }
     .btn:active{transform: translateY(1px)}
-    .btn.secondary{
-      background: rgba(96,165,250,.95);
-      box-shadow: 0 12px 26px rgba(96,165,250,.18);
+
+    .btn.pink{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(236,72,153,.25);
     }
     .btn.ghost{
-      background: rgba(17,24,39,.55);
+      background: rgba(255,255,255,.10);
       color: var(--text);
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
       box-shadow:none;
     }
-    .btn.danger{
-      background: rgba(239,68,68,.95);
-      box-shadow: 0 12px 26px rgba(239,68,68,.18);
-    }
+
     .section{
       margin-top: 12px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(17,24,39,.55);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(59,18,38,.55);
       border-radius: var(--radius);
       overflow:hidden;
     }
@@ -147,24 +169,37 @@
       justify-content:space-between;
       align-items:center;
       padding: 14px 14px;
-      background: rgba(15,23,42,.55);
+      background: rgba(74,23,48,.55);
       border:none;
       color: var(--text);
       cursor:pointer;
-      font-weight:800;
+      font-weight:900;
       letter-spacing:-.01em;
     }
-    .chev{opacity:.8; transition: transform .15s ease}
+    .chev{opacity:.85; transition: transform .15s ease}
     .sec-h[aria-expanded="true"] .chev{transform: rotate(180deg)}
     .sec-b{
       padding: 12px 14px 14px;
-      border-top:1px solid rgba(255,255,255,.08);
-      color: rgba(229,231,235,.95);
+      border-top:1px solid rgba(255,255,255,.10);
+      color: rgba(255,241,247,.95);
     }
     .sec-b p{margin: 10px 0}
     ul{margin: 10px 0 0 18px; padding:0}
     li{margin: 6px 0}
-    .muted{color:var(--muted)}
+
+    .tag{
+      display:inline-flex;
+      gap:6px;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(236,72,153,.18);
+      border: 1px solid rgba(236,72,153,.35);
+      font-size: 12.5px;
+      color: rgba(255,241,247,.98);
+      font-weight:800;
+    }
+
     .timeline{
       margin-top: 10px;
       display:flex;
@@ -177,32 +212,22 @@
       align-items:flex-start;
       padding: 10px;
       border-radius: 14px;
-      border:1px solid rgba(255,255,255,.09);
-      background: rgba(15,23,42,.55);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(74,23,48,.38);
     }
     .time{
       min-width: 76px;
       font-weight: 900;
-      color: rgba(229,231,235,.95);
+      color: rgba(255,241,247,.95);
     }
-    .tag{
-      display:inline-flex;
-      gap:6px;
-      align-items:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(34,197,94,.14);
-      border: 1px solid rgba(34,197,94,.28);
-      font-size: 12.5px;
-      color: rgba(229,231,235,.98);
-    }
+
     .toast{
       position: fixed;
       left: 50%;
       bottom: 18px;
       transform: translateX(-50%);
-      background: rgba(17,24,39,.92);
-      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(59,18,38,.92);
+      border: 1px solid rgba(255,255,255,.20);
       color: var(--text);
       padding: 10px 12px;
       border-radius: 999px;
@@ -216,48 +241,62 @@
       max-width: min(520px, calc(100vw - 24px));
     }
     .toast.show{opacity:1; transform: translateX(-50%) translateY(-2px)}
+
     .footer{
       margin-top: 16px;
-      color: var(--muted);
+      color: rgba(255,241,247,.72);
       font-size: 12.5px;
       text-align:center;
     }
-    .small-actions{margin-top:10px; display:grid; grid-template-columns: 1fr 1fr; gap:10px;}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+
+    @media (max-width: 380px){
+      .grid{grid-template-columns:1fr}
+      .actions{grid-template-columns:1fr}
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <div class="hero">
-      <div class="badge"><span class="dot"></span><span id="topLabel">DAY RETREAT · RECOVERY</span></div>
+
+      <!-- ✅ 포스터(네 링크) -->
+      <img
+        class="poster"
+        src="https://i.postimg.cc/yBcFY6z8/jemog-eul-iblyeoghaejuseyo-%282%29.png"
+        alt="2026 일일수련회 포스터"
+        loading="lazy"
+      />
+
+      <div class="badge"><span class="dot"></span><span id="topLabel">2026 DAY RETREAT</span></div>
       <h1 id="title">일일수련회 초대장</h1>
       <p class="subtitle" id="subtitle">함께 예배하고, 회복하고, 다시 시작하는 하루</p>
 
       <div class="grid">
         <div class="pill">
           <div class="k">일시</div>
-          <div class="v" id="whenText">2026-02-?? (토) 10:00–18:00</div>
+          <div class="v" id="whenText">2026.02.21 (토) 오전 10시</div>
           <div class="k muted" style="margin-top:6px">D-Day <span class="mono" id="dday">—</span></div>
         </div>
         <div class="pill">
           <div class="k">장소</div>
-          <div class="v" id="whereText">OO교회 3층 본당</div>
-          <div class="k muted" style="margin-top:6px" id="addrText">서울시 … (복사 가능)</div>
+          <div class="v" id="whereText">시흥성전</div>
+          <div class="k muted" style="margin-top:6px" id="addrText">주소(복사 가능)</div>
         </div>
       </div>
 
       <div class="verse">
-        <p id="verseText">“Have I not commanded you? Be strong and courageous… for the Lord your God will be with you wherever you go.”</p>
-        <div class="ref" id="verseRef">Joshua 1:9</div>
+        <p id="verseText">“백성이 각기 자녀들을 위하여 마음이 슬퍼서 다윗을 돌로 치자 하니 다윗이 크게 군급하였으나 그 하나님 여호와를 힘입고 용기를 얻었더라”</p>
+        <div class="ref" id="verseRef">사무엘상 30장 6절</div>
       </div>
 
+      <!-- ✅ 메일로 바로 받기(참석신청/문의하기) + 복사/공유 -->
       <div class="actions">
-        <a class="btn" id="rsvpBtn" href="#" role="button" aria-label="참석 신청">
-          ✅ 참석 신청
+        <a class="btn pink" id="rsvpBtn" href="#" role="button" aria-label="참석 신청 이메일 보내기">
+          💗 참석 신청
         </a>
-        <a class="btn secondary" id="kakaoBtn" href="#" role="button" aria-label="문의하기">
-          💬 문의하기
+        <a class="btn pink" id="askBtn" href="#" role="button" aria-label="문의 이메일 보내기">
+          📩 문의하기
         </a>
         <button class="btn ghost" id="copyBtn" type="button">📍 주소 복사</button>
         <button class="btn ghost" id="shareBtn" type="button">📤 공유하기</button>
@@ -266,18 +305,18 @@
 
     <div class="section">
       <button class="sec-h" type="button" aria-expanded="true" aria-controls="sec1">
-        프로그램 안내 <span class="chev">▾</span>
+        안내 <span class="chev">▾</span>
       </button>
       <div class="sec-b" id="sec1">
-        <div class="tag">RECOVERY 코스</div>
+        <div class="tag">회복 · 용기 · 동행</div>
         <p class="muted" id="descText">
-          회복은 “문제 해결”이 아니라 “다시 하나님께 붙는 것”에서 시작됩니다.
-          예배 · 미션 · 나눔으로 구성된 참여형 프로그램입니다.
+          다윗이 극심한 위기 속에서도 하나님을 힘입어 용기를 얻었던 것처럼,
+          우리도 예배와 말씀, 공동체 안에서 다시 회복하는 시간을 갖고자 합니다.
         </p>
         <ul id="bullets">
-          <li>미션형 코스(실내) + 팀전</li>
-          <li>말씀/기도/회복 나눔</li>
-          <li>초대장 링크 하나로 안내/신청/공유까지</li>
+          <li>대상: 김포 · 인천 · 부평 · 시흥 청년</li>
+          <li>참석 목표: 80명</li>
+          <li>준비물: 성경 / 노트 / 필기도구</li>
         </ul>
       </div>
     </div>
@@ -287,54 +326,32 @@
         타임테이블 <span class="chev">▾</span>
       </button>
       <div class="sec-b" id="sec2" hidden>
-        <div class="timeline" id="timeline">
-          <div class="row"><div class="time">10:00</div><div><b>체크인 & 아이스브레이킹</b><div class="muted">팀 배정 / 안내</div></div></div>
-          <div class="row"><div class="time">11:00</div><div><b>개회예배</b><div class="muted">회복의 시작</div></div></div>
+        <div class="timeline">
+          <div class="row"><div class="time">10:00</div><div><b>체크인</b><div class="muted">안내 / 자리 정돈</div></div></div>
+          <div class="row"><div class="time">10:30</div><div><b>개회예배</b><div class="muted">말씀 · 찬양</div></div></div>
           <div class="row"><div class="time">12:00</div><div><b>점심</b><div class="muted">교제</div></div></div>
-          <div class="row"><div class="time">13:30</div><div><b>미션 코스</b><div class="muted">RECOVERY 퍼즐/게임</div></div></div>
-          <div class="row"><div class="time">16:30</div><div><b>회복 나눔</b><div class="muted">간증/소그룹</div></div></div>
-          <div class="row"><div class="time">17:30</div><div><b>기도회</b><div class="muted">결단과 파송</div></div></div>
-        </div>
-
-        <div class="small-actions">
-          <a class="btn ghost" id="gcalBtn" href="#" role="button">📅 Google 캘린더 추가</a>
-          <button class="btn ghost" id="icsBtn" type="button">🗓️ iPhone/Outlook(.ics)</button>
+          <div class="row"><div class="time">13:30</div><div><b>프로그램</b><div class="muted">회복 코스 / 팀 활동</div></div></div>
+          <div class="row"><div class="time">16:30</div><div><b>나눔</b><div class="muted">소그룹</div></div></div>
+          <div class="row"><div class="time">17:30</div><div><b>기도회</b><div class="muted">결단 · 파송</div></div></div>
         </div>
       </div>
     </div>
 
     <div class="section">
       <button class="sec-h" type="button" aria-expanded="false" aria-controls="sec3">
-        준비물 & 안내 <span class="chev">▾</span>
+        문의 정보 <span class="chev">▾</span>
       </button>
       <div class="sec-b" id="sec3" hidden>
+        <p class="muted">버튼을 누르면 이메일이 열리고, 내용을 적어서 보내면 돼요.</p>
         <ul>
-          <li>개인 성경/노트/필기도구</li>
-          <li>활동하기 편한 복장(실내)</li>
-          <li class="muted">문의: <span id="contactName">담당자 OOO</span> · <span class="mono" id="contactPhone">010-0000-0000</span></li>
+          <li class="muted">담당자: <span id="contactName">권성경</span></li>
+          <li class="muted">이메일: <span class="mono" id="contactEmail">YOUR_EMAIL_HERE</span></li>
         </ul>
       </div>
     </div>
 
-    <div class="section">
-      <button class="sec-h" type="button" aria-expanded="false" aria-controls="sec4">
-        커스텀 메시지 (이름 넣기) <span class="chev">▾</span>
-      </button>
-      <div class="sec-b" id="sec4" hidden>
-        <p class="muted">링크에 <span class="mono">?name=성경&msg=함께가요</span> 처럼 붙이면 초대장이 개인화돼요.</p>
-        <div class="pill" style="margin-top:10px">
-          <div class="k">미리보기</div>
-          <div class="v" id="personalMsg">—</div>
-        </div>
-        <div class="small-actions">
-          <button class="btn ghost" id="copyLinkBtn" type="button">🔗 개인화 링크 복사</button>
-          <button class="btn ghost" id="resetBtn" type="button">↩︎ 기본으로</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer" id="footerText">
-      © 일일수련회 초대장 · 링크 하나로 안내/신청/공유
+    <div class="footer">
+      © 2026 일일수련회 · 모바일 초대장
     </div>
   </div>
 
@@ -342,58 +359,27 @@
 
   <script>
     /**********************
-     * 1) 여기만 바꾸면 됨
+     * ✅ 여기만 바꾸면 끝
      **********************/
     const INVITE = {
-      topLabel: "DAY RETREAT · RECOVERY",
-      title: "일일수련회 초대장",
-      subtitle: "함께 예배하고, 회복하고, 다시 시작하는 하루",
-      // ISO 형식 권장: YYYY-MM-DDTHH:mm (로컬시간 기준)
-      startISO: "2026-02-22T10:00",
-      endISO:   "2026-02-22T18:00",
-      whenText: "2026-02-22 (토) 10:00–18:00",
-      whereText: "OO교회 3층 본당",
-      address: "서울시 ○○구 ○○로 123 (OO교회)",
-
-      verseText: "“Have I not commanded you? Be strong and courageous… for the Lord your God will be with you wherever you go.”",
-      verseRef: "Joshua 1:9",
-
-      descText: "회복은 ‘문제 해결’이 아니라 ‘다시 하나님께 붙는 것’에서 시작됩니다. 예배 · 미션 · 나눔으로 구성된 참여형 프로그램입니다.",
-
-      contactName: "담당자 OOO",
-      contactPhone: "010-0000-0000",
-
-      // RSVP / 문의 링크 (원하는 걸로 교체)
-      // 예: 구글폼, 카톡채널, 오픈채팅, 네이버폼 등
-      rsvpUrl: "https://forms.gle/XXXXXXXXXXXXXXX",
-      문의Url: "https://open.kakao.com/o/XXXXXXXX",
-
-      // 지도 링크(선택)
-      mapUrl: "https://map.naver.com/"
+      emailTo: "jnkwon1214@naver.com",  // ← 너의 이메일로 바꿔줘!
+      title: "2026 일일수련회 [회복]",
+      whenText: "2026.02.21 (토) 오전 10시",
+      whereText: "시흥성전",
+      address: "경기도 시흥시 신천로44번안길 20-1 은혜와진리교회",
+      // 디데이 계산용 (로컬시간)
+      startISO: "2026-02-21T10:00"
     };
 
-    /**********************
-     * 2) 렌더링
-     **********************/
     const $ = (id) => document.getElementById(id);
-    $("topLabel").textContent = INVITE.topLabel;
-    $("title").textContent = INVITE.title;
-    $("subtitle").textContent = INVITE.subtitle;
+
     $("whenText").textContent = INVITE.whenText;
     $("whereText").textContent = INVITE.whereText;
     $("addrText").textContent = INVITE.address;
-    $("verseText").textContent = INVITE.verseText;
-    $("verseRef").textContent = INVITE.verseRef;
-    $("descText").textContent = INVITE.descText;
-    $("contactName").textContent = INVITE.contactName;
-    $("contactPhone").textContent = INVITE.contactPhone;
-
-    // 버튼 링크
-    $("rsvpBtn").href = INVITE.rsvpUrl || "#";
-    $("kakaoBtn").href = INVITE.문의Url || "#";
+    $("contactEmail").textContent = INVITE.emailTo;
 
     /**********************
-     * 3) D-Day
+     * D-Day
      **********************/
     function calcDday(startISO){
       const now = new Date();
@@ -408,7 +394,7 @@
     $("dday").textContent = calcDday(INVITE.startISO);
 
     /**********************
-     * 4) 아코디언
+     * 아코디언
      **********************/
     document.querySelectorAll(".sec-h").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -416,13 +402,12 @@
         const targetId = btn.getAttribute("aria-controls");
         const panel = document.getElementById(targetId);
         btn.setAttribute("aria-expanded", String(!expanded));
-        if (!expanded) panel.hidden = false;
-        else panel.hidden = true;
+        panel.hidden = expanded ? true : false;
       });
     });
 
     /**********************
-     * 5) 토스트
+     * 토스트
      **********************/
     let toastTimer = null;
     function toast(msg){
@@ -434,7 +419,7 @@
     }
 
     /**********************
-     * 6) 주소 복사 / 공유
+     * 주소 복사 / 공유
      **********************/
     $("copyBtn").addEventListener("click", async () => {
       try{
@@ -453,7 +438,7 @@
       };
       if (navigator.share){
         try{ await navigator.share(shareData); }
-        catch(e){ /* 사용자가 취소한 경우 무시 */ }
+        catch(e){ /* 사용자가 취소 */ }
       }else{
         try{
           await navigator.clipboard.writeText(location.href);
@@ -465,122 +450,41 @@
     });
 
     /**********************
-     * 7) Google 캘린더 링크 생성
+     * ✅ mailto 링크 만들기 (참석신청/문의)
      **********************/
-    function toGcalTime(iso){
-      // Google Calendar expects UTC in YYYYMMDDTHHMMSSZ
-      const d = new Date(iso);
-      const pad = (n) => String(n).padStart(2,"0");
-      const yyyy = d.getUTCFullYear();
-      const mm = pad(d.getUTCMonth()+1);
-      const dd = pad(d.getUTCDate());
-      const hh = pad(d.getUTCHours());
-      const mi = pad(d.getUTCMinutes());
-      const ss = pad(d.getUTCSeconds());
-      return `${yyyy}${mm}${dd}T${hh}${mi}${ss}Z`;
+    function mailtoUrl(subject, body){
+      const to = encodeURIComponent(INVITE.emailTo);
+      const s  = encodeURIComponent(subject);
+      const b  = encodeURIComponent(body);
+      return `mailto:${to}?subject=${s}&body=${b}`;
     }
-    const gcalUrl = (() => {
-      const dates = `${toGcalTime(INVITE.startISO)}/${toGcalTime(INVITE.endISO)}`;
-      const params = new URLSearchParams({
-        action: "TEMPLATE",
-        text: INVITE.title,
-        dates,
-        details: `${INVITE.subtitle}\n\nRSVP: ${INVITE.rsvpUrl}`,
-        location: `${INVITE.whereText} · ${INVITE.address}`
-      });
-      return `https://calendar.google.com/calendar/render?${params.toString()}`;
-    })();
-    $("gcalBtn").href = gcalUrl;
 
-    /**********************
-     * 8) ICS 다운로드 (iPhone/Outlook)
-     **********************/
-    function makeICS(){
-      const dt = (iso) => {
-        const d = new Date(iso);
-        const pad = (n) => String(n).padStart(2,"0");
-        // UTC
-        return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
-      };
-      const uid = `invite-${Math.random().toString(16).slice(2)}@local`;
-      const lines = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Mobile Invite//KR//EN",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "BEGIN:VEVENT",
-        `UID:${uid}`,
-        `DTSTAMP:${dt(new Date().toISOString())}`,
-        `DTSTART:${dt(INVITE.startISO)}`,
-        `DTEND:${dt(INVITE.endISO)}`,
-        `SUMMARY:${escapeICS(INVITE.title)}`,
-        `DESCRIPTION:${escapeICS(`${INVITE.subtitle}\\n\\nRSVP: ${INVITE.rsvpUrl}`)}`,
-        `LOCATION:${escapeICS(`${INVITE.whereText} · ${INVITE.address}`)}`,
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ];
-      return lines.join("\r\n");
-    }
-    function escapeICS(s){
-      return String(s)
-        .replace(/\\/g, "\\\\")
-        .replace(/\n/g, "\\n")
-        .replace(/,/g, "\\,")
-        .replace(/;/g, "\\;");
-    }
-    $("icsBtn").addEventListener("click", () => {
-      const blob = new Blob([makeICS()], {type:"text/calendar;charset=utf-8"});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `${INVITE.title}.ics`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-      toast("🗓️ .ics 파일을 다운로드했어요");
-    });
+    // 참석 신청
+    const rsvpSubject = `[${INVITE.title}] 참석 신청`;
+    const rsvpBody =
+`안녕하세요! 일일수련회 참석 신청드립니다.
 
-    /**********************
-     * 9) 개인화 (name/msg)
-     **********************/
-    const params = new URLSearchParams(location.search);
-    const name = params.get("name");
-    const msg  = params.get("msg");
-    const personal = (() => {
-      if (!name && !msg) return "—";
-      const n = name ? `${name}님, ` : "";
-      const m = msg ? msg : "함께해요!";
-      return `${n}${m}`;
-    })();
-    $("personalMsg").textContent = personal;
+이름:
+연락처:
+소속(김포/인천/부평/시흥):
+동행 인원(있다면):
 
-    $("copyLinkBtn").addEventListener("click", async () => {
-      const url = new URL(location.href);
-      if (!url.searchParams.get("name")) url.searchParams.set("name", "성경");
-      if (!url.searchParams.get("msg"))  url.searchParams.set("msg", "일일수련회에서 만나요!");
-      try{
-        await navigator.clipboard.writeText(url.toString());
-        toast("🔗 개인화 링크 복사 완료");
-      }catch(e){
-        toast("⚠️ 복사 실패: 브라우저 권한 확인");
-      }
-    });
+추가로 전달할 내용:
+`;
+    $("rsvpBtn").href = mailtoUrl(rsvpSubject, rsvpBody);
 
-    $("resetBtn").addEventListener("click", () => {
-      const url = new URL(location.href);
-      url.search = "";
-      location.href = url.toString();
-    });
+    // 문의하기
+    const askSubject = `[${INVITE.title}] 문의드립니다`;
+    const askBody =
+`안녕하세요! 일일수련회 관련 문의드립니다.
 
-    /**********************
-     * 10) 옵션: 장소 탭하면 지도 열기
-     **********************/
-    $("whereText").style.cursor = "pointer";
-    $("whereText").addEventListener("click", () => {
-      if (INVITE.mapUrl) window.open(INVITE.mapUrl, "_blank");
-    });
+문의 내용:
+(여기에 내용을 적어주세요)
+
+이름:
+연락처:
+`;
+    $("askBtn").href = mailtoUrl(askSubject, askBody);
   </script>
 </body>
 </html>
