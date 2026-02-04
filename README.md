@@ -292,9 +292,7 @@
 
       <!-- ✅ 메일로 바로 받기(참석신청/문의하기) + 복사/공유 -->
       <div class="actions">
-        <a class="btn pink" id="rsvpBtn" href="#" role="button" aria-label="참석 신청 이메일 보내기">
-          💗 참석 신청
-        </a>
+        
         <a class="btn pink" id="askBtn" href="#" role="button" aria-label="문의 이메일 보내기">
           📩 문의하기
         </a>
