@@ -341,9 +341,9 @@
         문의 정보 <span class="chev">▾</span>
       </button>
       <div class="sec-b" id="sec3" hidden>
-        <p class="muted">버튼을 누르면 이메일이 열리고, 내용을 적어서 보내면 돼요.</p>
+        <p class="muted">추가적인 문의사항은 연락부탁드립니다.</p>
         <ul>
-          <li class="muted">담당자: <span id="contactName">권성경</span></li>
+          <li class="muted">담당자: <span id="contactName">권성경 010 -5780-7231</span></li>
           <li class="muted">이메일: <span class="mono" id="contactEmail">YOUR_EMAIL_HERE</span></li>
         </ul>
       </div>
