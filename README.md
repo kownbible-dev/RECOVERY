@@ -465,42 +465,6 @@
       }
     });
 
-    /**********************
-     * ✅ mailto 링크 만들기 (참석신청/문의)
-     **********************/
-    function mailtoUrl(subject, body){
-      const to = encodeURIComponent(INVITE.emailTo);
-      const s  = encodeURIComponent(subject);
-      const b  = encodeURIComponent(body);
-      return `mailto:${to}?subject=${s}&body=${b}`;
-    }
-
-    // 참석 신청
-    const rsvpSubject = `[${INVITE.title}] 참석 신청`;
-    const rsvpBody =
-`안녕하세요! 일일수련회 참석 신청드립니다.
-
-이름:
-연락처:
-소속(김포/인천/부평/시흥):
-동행 인원(있다면):
-
-추가로 전달할 내용:
-`;
-    $("rsvpBtn").href = mailtoUrl(rsvpSubject, rsvpBody);
-
-    // 문의하기
-    const askSubject = `[${INVITE.title}] 문의드립니다`;
-    const askBody =
-`안녕하세요! 일일수련회 관련 문의드립니다.
-
-문의 내용:
-(여기에 내용을 적어주세요)
-
-이름:
-연락처:
-`;
-    $("askBtn").href = mailtoUrl(askSubject, askBody);
 
     function openSection(id){
   const panel = document.getElementById(id);
