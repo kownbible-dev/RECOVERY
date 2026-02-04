@@ -28,7 +28,7 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", Arial, "Helvetica Neue", sans-serif;
       line-height:1.45;
       -webkit-font-smoothing: antialiased;
-      padding: 22px 14px 88px;
+      padding: 22px 14px 80px;
       background:
         radial-gradient(1200px 700px at 20% -10%, rgba(236,72,153,.35), transparent 60%),
         radial-gradient(1200px 700px at 90% 10%, rgba(244,114,182,.25), transparent 55%),
@@ -186,7 +186,7 @@
       border:1px solid rgba(255,255,255,.12);
       background: rgba(74,23,48,.38);
     }
-    .time{min-width: 86px; font-weight: 900;}
+    .time{min-width: 92px; font-weight: 900;}
 
     .footer{
       margin-top: 16px;
@@ -213,22 +213,6 @@
     }
     .toast.show{opacity:1; transform: translateX(-50%) translateY(-2px)}
 
-    .music-btn{
-      position: fixed;
-      right: 14px;
-      bottom: 72px;
-      z-index: 999;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.22);
-      background: rgba(59,18,38,.88);
-      color: var(--text);
-      font-weight: 900;
-      box-shadow: 0 12px 26px rgba(236,72,153,.20);
-      cursor: pointer;
-    }
-    .music-btn:active{transform: translateY(1px)}
-
     @media (max-width: 380px){
       .grid{grid-template-columns:1fr}
       .actions{grid-template-columns:1fr}
@@ -246,7 +230,9 @@
         loading="lazy"
       />
 
-      <div class="badge"><span class="dot"></span><span>2026 DAY RETREAT</span></div>
+      <!-- ✅ 배지 문구 변경 -->
+      <div class="badge"><span class="dot"></span><span>2026 '회복'</span></div>
+
       <h1>일일수련회 초대장</h1>
       <p class="subtitle">함께 예배하고, 회복하고, 다시 시작하는 하루</p>
 
@@ -274,6 +260,7 @@
       </div>
     </div>
 
+    <!-- ✅ 기본: 닫힌 상태(aria-expanded=false + hidden 유지) -->
     <div class="section">
       <button class="sec-h" type="button" aria-expanded="false" aria-controls="sec1">
         안내 <span class="chev">▾</span>
@@ -315,7 +302,7 @@
         <p style="margin:0 0 10px; color:rgba(255,241,247,.85)">추가 문의:</p>
         <ul>
           <li>권성경 010-5780-7231</li>
-          <li>경기도 시흥시 신천로44번안길 20-1 은혜와진리교회</li>
+          <li id="contactAddr">경기도 시흥시 신천로44번안길 20-1 은혜와진리교회</li>
         </ul>
       </div>
     </div>
@@ -324,12 +311,6 @@
   </div>
 
   <div class="toast" id="toast">✅</div>
-
-  <!-- ✅ BGM (bgm.m4a를 repo 루트에 업로드) -->
-  <audio id="bgm" preload="auto" loop playsinline>
-    <source src="bgm.m4a" type="audio/mp4" />
-  </audio>
-  <button class="music-btn" id="musicBtn" type="button">🔊 BGM</button>
 
   <script>
     const INVITE = {
@@ -342,12 +323,10 @@
 
     const $ = (id) => document.getElementById(id);
 
-    // 값 주입
     $("whenText").textContent = INVITE.whenText;
     $("whereText").textContent = INVITE.whereText;
     $("addrText").textContent = INVITE.address;
 
-    // D-Day
     function calcDday(startISO){
       const now = new Date();
       const start = new Date(startISO);
@@ -381,20 +360,6 @@
       });
     });
 
-    // ✅ 카드 자동 오픈(착착 열림)
-    function openSection(id){
-      const panel = document.getElementById(id);
-      const btn = document.querySelector(`.sec-h[aria-controls="${id}"]`);
-      if (!panel || !btn) return;
-      btn.setAttribute("aria-expanded", "true");
-      panel.hidden = false;
-    }
-    window.addEventListener("DOMContentLoaded", () => {
-      ["sec1","sec2","sec3"].forEach((id, i) => {
-        setTimeout(() => openSection(id), 180 * i);
-      });
-    });
-
     // 주소 복사
     $("copyBtn").addEventListener("click", async () => {
       try{
@@ -423,46 +388,6 @@
         }
       }
     });
-
-    // ✅ BGM
-    const bgm = $("bgm");
-    const musicBtn = $("musicBtn");
-    let isPlaying = false;
-
-    function setMusicLabel(){
-      musicBtn.textContent = isPlaying ? "🔇 BGM" : "🔊 BGM";
-    }
-    setMusicLabel();
-
-    async function startBgm(){
-      try{
-        await bgm.play();
-        isPlaying = true;
-        setMusicLabel();
-      }catch(e){}
-    }
-
-    musicBtn.addEventListener("click", async () => {
-      try{
-        if (!isPlaying){
-          await bgm.play();
-          isPlaying = true;
-          toast("🎵 배경음악 재생");
-        }else{
-          bgm.pause();
-          isPlaying = false;
-          toast("⏸️ 배경음악 정지");
-        }
-        setMusicLabel();
-      }catch(e){
-        alert("재생이 막혔어요. 화면을 한 번 터치한 후 다시 눌러보세요.");
-      }
-    });
-
-    // 모바일: 첫 터치 때 자동 시작(정책 대응)
-    window.addEventListener("pointerdown", () => {
-      if (!isPlaying) startBgm();
-    }, { once:true });
   </script>
 </body>
 </html>
