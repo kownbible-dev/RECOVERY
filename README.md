@@ -253,6 +253,23 @@
       .grid{grid-template-columns:1fr}
       .actions{grid-template-columns:1fr}
     }
+
+    .music-btn{
+  position: fixed;
+  right: 14px;
+  bottom: 72px;
+  z-index: 999;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(59,18,38,.88);
+  color: var(--text);
+  font-weight: 900;
+  box-shadow: 0 12px 26px rgba(236,72,153,.20);
+  cursor: pointer;
+}
+.music-btn:active{transform: translateY(1px)}
+
   </style>
 </head>
 
@@ -484,6 +501,63 @@
 연락처:
 `;
     $("askBtn").href = mailtoUrl(askSubject, askBody);
+
+    function openSection(id){
+  const panel = document.getElementById(id);
+  const btn = document.querySelector(`.sec-h[aria-controls="${id}"]`);
+  if (!panel || !btn) return;
+
+  btn.setAttribute("aria-expanded", "true");
+  panel.hidden = false;
+}
+window.addEventListener("DOMContentLoaded", () => {
+  const ids = ["sec1","sec2","sec3"];
+  ids.forEach((id, i) => {
+    setTimeout(() => openSection(id), 180 * i); // 0.18초 간격으로 착착 열림
+  });
+});
+    const bgm = document.getElementById("bgm");
+const musicBtn = document.getElementById("musicBtn");
+let isPlaying = false;
+
+musicBtn.addEventListener("click", async () => {
+  try{
+    if (!isPlaying){
+      await bgm.play();
+      isPlaying = true;
+      musicBtn.textContent = "🔇 BGM";
+      toast("🎵 배경음악 재생");
+    }else{
+      bgm.pause();
+      isPlaying = false;
+      musicBtn.textContent = "🔊 BGM";
+      toast("⏸️ 배경음악 정지");
+    }
+  }catch(e){
+    toast("⚠️ 재생 실패: 파일/브라우저 정책 확인");
+  }
+});
+
+// “첫 터치”로 자동 재생(모바일 정책 대응)
+window.addEventListener("pointerdown", async () => {
+  if (isPlaying) return;
+  try{
+    await bgm.play();
+    isPlaying = true;
+    musicBtn.textContent = "🔇 BGM";
+  }catch(e){}
+}, { once:true });
+
+
   </script>
+   <audio id="bgm" preload="auto" loop playsinline>
+    <source src="bgm.mp3" type="audio/mpeg" />
+    <source src="bgm.m4a" type="audio/mp4" />
+  </audio>
+
+<button class="music-btn" id="musicBtn" type="button" aria-label="배경음악 재생">
+  🔊 BGM
+</button>
+
 </body>
 </html>
